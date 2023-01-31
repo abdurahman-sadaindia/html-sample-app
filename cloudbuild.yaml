@@ -1,0 +1,20 @@
+
+steps:
+  # build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/sadaindia-tvm-poc-de/abdu-image:latest", "."]
+
+
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/sadaindia-tvm-poc-de/abdu-image:latest"]
+
+
+  # deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=deployment.yaml
+  - --image=gcr.io/sadaindia-tvm-poc-de/abdu-image:latest
+  - --location=us-central1-a
+  - --cluster=abdu-gke

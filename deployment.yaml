@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abdu-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: html-sample-app
+  template:
+    metadata:
+      labels:
+        app: html-sample-app
+    spec:
+      containers:
+      - name: html-sample-app
+        image: gcr.io/sadaindia-tvm-poc-de/abdu-image:latest
+        ports:
+        - containerPort: 8080
