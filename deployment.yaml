@@ -16,7 +16,7 @@ spec:
       - name: html-sample-app
         image: gcr.io/sadaindia-tvm-poc-de/abdu-image:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 
 ---
 apiVersion: v1
