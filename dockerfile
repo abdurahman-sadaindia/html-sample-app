@@ -1,4 +1,7 @@
 FROM nginx
-COPY .  /usr/share/nginx/html
+COPY .  /usr/src/app
 
 EXPOSE 8080
+
+# /usr/src/app/index.html
+
