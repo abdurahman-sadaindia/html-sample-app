@@ -5,6 +5,19 @@
 
 # /usr/src/app/index.html
 
+# FROM ubuntu
+
+# RUN apt-get update
+
+# RUN apt-get install nginx -y
+
+# COPY . /var/www/html/
+
+# EXPOSE 80
+
+# CMD [“nginx”,”-g”,”daemon off;”]
+
+
 FROM ubuntu
 
 RUN apt-get update
@@ -15,4 +28,4 @@ COPY . /var/www/html/
 
 EXPOSE 80
 
-# CMD [“nginx”,”-g”,”daemon off;”]
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
