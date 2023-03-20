@@ -25,5 +25,3 @@ steps:
   - apply
   - -f
   - ingress.yaml
-  - --namespace=default
-  - --kubeconfig=/workspace/.kube/config
