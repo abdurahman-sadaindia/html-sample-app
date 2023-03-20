@@ -19,28 +19,10 @@ steps:
   - --location=us-central1-a
   - --cluster=abdu-gke
 
- # deploy ingress resource to GKE
+  # deploy ingress resource to GKE
 - name: "gcr.io/cloud-builders/kubectl"
   args:
+  - kubectl
   - apply
   - -f
   - ingress.yaml
-  - --namespace=default
-  env:
-  - name: CLOUDSDK_COMPUTE_REGION
-    value: us-central1-a
-  - name: CLOUDSDK_COMPUTE_ZONE
-    value: us-central1-a-c
-  - name: CLOUDSDK_CONTAINER_CLUSTER
-    value: abdu-gke
-  - name: KUBECTL_VERSION
-    value: "1.22"
-  - name: CLOUDSDK_GET_CREDENTIALS_OPTS
-    value: "--quiet"
-  - name: GOOGLE_APPLICATION_CREDENTIALS
-    value: /workspace/service-account.json
-  volumes:
-  - name: kubeconfig
-    path: /workspace/.kube/
-  - name: credentials
-    path: /workspace/
