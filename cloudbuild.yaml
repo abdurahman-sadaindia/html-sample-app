@@ -18,3 +18,12 @@ steps:
   - --image=gcr.io/sadaindia-tvm-poc-de/abdu-image:latest
   - --location=us-central1-a
   - --cluster=abdu-gke
+
+  # deploy ingress resource to GKE
+- name: "gcr.io/cloud-builders/kubectl"
+  args:
+  - apply
+  - -f
+  - ingress.yaml
+  - --namespace=default
+  - --kubeconfig=/workspace/.kube/config
