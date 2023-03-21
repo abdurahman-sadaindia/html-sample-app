@@ -27,24 +27,9 @@ spec:
   selector:
     app: html-sample-app
   ports:
-  - name: https
-    port: 443
+  - name: http
+    port: 80
     targetPort: 80
   type: LoadBalancer
 
----
-apiVersion: "networking.k8s.io/v1"
-kind: "Ingress"
-metadata:
-  name: "html-sample-app-ingress"
-  namespace: "default"
-  annotations:
-    networking.gke.io/managed-certificates: "html-sample-app-cert"
-spec:
-  defaultBackend:
-    service:
-      name: "html-sample-app-service"
-      port:
-        number: 443
-status:
-  loadBalancer: {}
+
